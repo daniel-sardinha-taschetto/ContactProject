@@ -1,0 +1,79 @@
+﻿@model IEnumerable<ContactProject.Models.Contact>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Contact's List</h2>
+
+<p>
+    @Html.ActionLink(" ", "Create",null, new { @class = "glyphicon glyphicon-plus-sign" })
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FirstName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LastName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NickName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DisplayAs)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DateOfBirth)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PhoneNumber)
+        </th>
+        <th>Actions</th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Id)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FirstName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LastName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NickName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DisplayAs)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DateOfBirth, "ShortDateTime")
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PhoneNumber)
+        </td>
+        <td>
+            <a href="@Url.Action("Edit", new { id = item.Id })">
+                <i class="glyphicon glyphicon-pencil"></i>
+                <span class="sr-only">Edit</span>
+            </a> |
+            <a href="@Url.Action("Details", new { id = item.Id })">
+                <i class="glyphicon glyphicon-list"></i>
+                <span class="sr-only">Details</span>
+            </a> 
+             |
+            <a href="@Url.Action("Delete", new { id = item.Id })">
+                <i class="glyphicon glyphicon-remove-circle"></i>
+                <span class="sr-only">Delete</span>
+            </a>
+        </td>
+    </tr>
+}
+
+</table>
