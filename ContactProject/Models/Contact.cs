@@ -9,20 +9,35 @@ namespace ContactProject.Models
 {
     public class Contact
     {
+        /// <summary>
+        /// Primary Key
+        /// </summary>
         [Key]
         public Int32 Id { get; set; }
 
+        /// <summary>
+        /// First Name
+        /// </summary>
         [Required]
         [MaxLength(100)]
         public String FirstName { get; set; }
 
+        /// <summary>
+        /// Last Name
+        /// </summary>
         [Required]
         [MaxLength(100)]
         public String LastName { get; set; }
 
+        /// <summary>
+        /// Nickname
+        /// </summary>
         [MaxLength(20)]
         public String NickName { get; set; }
 
+        /// <summary>
+        /// Display name (not mapped into the db)
+        /// </summary>
         [NotMapped]
         public String DisplayAs
         {
@@ -31,9 +46,15 @@ namespace ContactProject.Models
                 return FirstName + ", " + LastName + ", " + NickName;
             }
         }
-        //[DisplayFormat(DataFormatString = "{0:dd/MM/yyyy")]
-        //[DataType(DataType.Date)]
+
+        /// <summary>
+        /// Date Of Birth
+        /// </summary>
         public DateTime DateOfBirth { get; set; }
+
+        /// <summary>
+        /// Phone Number (Australia format)
+        /// </summary>
         [Required]
         [MaxLength(20)]
         [DataType(DataType.PhoneNumber)]

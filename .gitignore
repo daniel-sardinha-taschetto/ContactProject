@@ -4,7 +4,7 @@
 # Custom files
 *.pem
 Informations.txt
-
+ec2-54-172-215-149.compute-1.amazonaws.com.rdp
 # User-specific files
 *.suo
 *.user
